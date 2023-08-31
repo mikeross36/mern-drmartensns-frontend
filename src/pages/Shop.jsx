@@ -3,12 +3,11 @@ import { getAllFootwearAction } from "../actions/footwearActions";
 import { useSelector, useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import ShopItem from "../components/ShopItem";
-import Spinner from "../components/Spinner";
 
 export default function Shop({ itemsPerPage = 4, pagesPerPagination = 4 }) {
   const [currentPage, setCurrentPage] = useState(1);
   const footwearState = useSelector((state) => state.getAllFootwear);
-  const { footwear, loading } = footwearState;
+  const { footwear } = footwearState;
 
   const totalPages = Math.round(footwear?.length / itemsPerPage);
 
@@ -62,16 +61,12 @@ export default function Shop({ itemsPerPage = 4, pagesPerPagination = 4 }) {
   return (
     <section className="shop section">
       <h2 className="section__title">dr martensns</h2>
-      {loading ? (
-        <Spinner />
-      ) : (
-        <ul className="shop__container grid">
-          {itemsNum > 0 &&
-            setItemsToPage().map(function (item) {
-              return <ShopItem key={item.id} item={item} />;
-            })}
-        </ul>
-      )}
+      <ul className="shop__container grid">
+        {itemsNum > 0 &&
+          setItemsToPage().map(function (item) {
+            return <ShopItem key={item.id} item={item} />;
+          })}
+      </ul>
       <div className="shop__pagination">
         <button className="page__nav-btn" onClick={previousPage}>
           prev
