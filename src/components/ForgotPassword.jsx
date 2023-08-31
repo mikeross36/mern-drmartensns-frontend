@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { api } from "../utils/axiosConfig";
+import axios from "axios";
 import { toast } from "react-toastify";
 import { useModal } from "../StateManager/ModalContext";
 import Button from "./Button";
@@ -19,8 +19,8 @@ export default function ForgotPassword() {
           "Content-Type": "application/json",
         },
       };
-      const { data } = await api.post(
-        "/api/v1/users/forgot-password",
+      const { data } = await axios.post(
+        "https://drmartensns-api.onrender.com/api/v1/users/forgot-password",
         { email },
         config
       );

@@ -12,7 +12,7 @@ export default function ShoppingCart() {
   const cartState = useSelector((state) => state.cart);
   const { cartItems, cartTotal } = cartState;
   const currentUser = useCurrentUser();
-  // console.log(currentUser);
+
   const { setShowModal1 } = useModal();
 
   const dispatch = useDispatch();

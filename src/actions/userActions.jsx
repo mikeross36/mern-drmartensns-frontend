@@ -1,4 +1,4 @@
-import { api } from "../utils/axiosConfig";
+import axios from "axios";
 import { toast } from "react-toastify";
 
 const userActionId = "userActionId";
@@ -12,8 +12,8 @@ export function updateAccountAction(name, email, formData) {
           "Content-Type": "multipart/form-data",
         },
       };
-      const { data } = await api.patch(
-        "/api/v1/users/update-user-account",
+      const { data } = await axios.patch(
+        "https://drmartensns-api.onrender.com/api/v1/users/update-user-account",
         { name, email, formData },
         config
       );

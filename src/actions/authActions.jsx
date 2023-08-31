@@ -1,4 +1,4 @@
-import { api } from "../utils/axiosConfig";
+import axios from "axios";
 import { toast } from "react-toastify";
 
 const authId = "authId";
@@ -12,8 +12,8 @@ export function signupUserAction(name, email, password) {
           "Content-Type": "application/json",
         },
       };
-      const { data } = await api.post(
-        "/api/v1/users/signup-user",
+      const { data } = await axios.post(
+        "https://drmartensns-api.onrender.com/api/v1/users/signup-user",
         { name, email, password },
         config
       );
@@ -41,8 +41,8 @@ export function loginUserAction(email, password) {
           "Content-Type": "application/json",
         },
       };
-      const { data } = await api.post(
-        `/api/v1/users/login-user`,
+      const { data } = await axios.post(
+        `https://drmartensns-api.onrender.com/api/v1/users/login-user`,
         { email, password },
         config
       );
@@ -69,7 +69,10 @@ export function logoutUserAction() {
           "Content-Type": "application/json",
         },
       };
-      const { data } = await api.post("/api/v1/users/logout-user", config);
+      const { data } = await axios.post(
+        "https://drmartensns-api.onrender.com/api/v1/users/logout-user",
+        config
+      );
       dispatch({ type: "LOGOUT_USER_SUCCESS" });
       if (data.status === "success") {
         toast.success("You logged out successfully!", { toastId: authId });
@@ -93,8 +96,8 @@ export function resetPasswordAction(password, token) {
           "Content-Type": "application/json",
         },
       };
-      const { data } = await api.patch(
-        `/api/v1/users/reset-password/${token.token}`,
+      const { data } = await axios.patch(
+        `https://drmartensns-api.onrender.com/api/v1/users/reset-password/${token.token}`,
         { password },
         config
       );
@@ -122,8 +125,8 @@ export function updatePasswordAction(loginPassword, password) {
           "Content-Type": "application/json",
         },
       };
-      const { data } = await api.patch(
-        "/api/v1/users/update-password",
+      const { data } = await axios.patch(
+        "https://drmartensns-api.onrender.com/api/v1/users/update-password",
         { loginPassword, password },
         config
       );

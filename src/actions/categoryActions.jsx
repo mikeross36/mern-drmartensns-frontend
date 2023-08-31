@@ -1,4 +1,4 @@
-import { api } from "../utils/axiosConfig";
+import axios from "axios";
 import { toast } from "react-toastify";
 
 const categoryId = "categoryId";
@@ -12,7 +12,10 @@ export function getAllCategoriesAction() {
           "Content-Type": "application/json",
         },
       };
-      const { data } = await api.get("/api/v1/categories", config);
+      const { data } = await axios.get(
+        "https://drmartensns-api.onrender.com/api/v1/categories",
+        config
+      );
       dispatch({ type: "GET_ALL_CATEGORIES_SUCCESS", payload: data });
     } catch (err) {
       dispatch({
@@ -33,7 +36,10 @@ export function getCategoryAction(id) {
           "Content-Type": "application/json",
         },
       };
-      const { data } = await api.get(`/api/v1/categories/${id}`, config);
+      const { data } = await axios.get(
+        `https://drmartensns-api.onrender.com/api/v1/categories/${id}`,
+        config
+      );
       dispatch({ type: "GET_CATEGORY_SUCCESS", payload: data });
     } catch (err) {
       dispatch({

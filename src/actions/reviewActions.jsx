@@ -1,4 +1,4 @@
-import { api } from "../utils/axiosConfig";
+import axios from "axios";
 import { toast } from "react-toastify";
 
 const reviewId = "reviewId";
@@ -12,7 +12,10 @@ export function getAllReviewsAction() {
           "Content-Type": "application/json",
         },
       };
-      const { data } = await api.get("/api/v1/reviews", config);
+      const { data } = await axios.get(
+        "https://drmartensns-api.onrender.com/api/v1/reviews",
+        config
+      );
       dispatch({ type: "GET_ALL_REVIEWS_SUCCESS", payload: data });
     } catch (err) {
       dispatch({
@@ -33,7 +36,10 @@ export function getReviewAction(id) {
           "Content-Type": "application/json",
         },
       };
-      const { data } = await api.get(`/api/v1/reviews/${id}`, config);
+      const { data } = await axios.get(
+        `https://drmartensns-api.onrender.com/api/v1/reviews/${id}`,
+        config
+      );
       dispatch({ type: "GET_REVIEW_SUCCESS", payload: data });
     } catch (err) {
       dispatch({
@@ -54,8 +60,8 @@ export function addReviewAction(id, content) {
           "Content-Type": "application/json",
         },
       };
-      const { data } = await api.post(
-        `/api/v1/footwear/${id}/reviews`,
+      const { data } = await axios.post(
+        `https://drmartensns-api.onrender.com/api/v1/footwear/${id}/reviews`,
         { content },
         config
       );
