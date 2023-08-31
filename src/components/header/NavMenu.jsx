@@ -10,7 +10,6 @@ export default function NavMenu({
 }) {
   const authState = useSelector((state) => state.loginUser);
   const { currentUser } = authState;
-  // console.log(authState);
 
   function closeMobMenu() {
     setShowMobMenu(false);

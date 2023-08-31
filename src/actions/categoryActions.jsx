@@ -1,4 +1,4 @@
-import api from "../utils/axiosConfig";
+import { api } from "../utils/axiosConfig";
 import { toast } from "react-toastify";
 
 const categoryId = "categoryId";
