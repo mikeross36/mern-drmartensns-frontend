@@ -1,0 +1,125 @@
+@use "../variables" as *;
+@use "../mixins";
+
+// https://visualhunt.com/search/instant/?q=dr+martens
+
+.testimonial {
+  position: relative;
+  background-image: linear-gradient(
+      to left,
+      rgba($whiteClr, 0.7),
+      rgba($whiteClr, 0.7)
+    ),
+    url("/images/main-bcg-img3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include mixins.breakpoint-up(medium) {
+    background-position-x: center;
+    background-position-y: 80%;
+  }
+
+  .testimonial__slider {
+    padding: 3rem 0;
+    margin-left: initial;
+    margin-right: initial;
+
+    .slider__wrapper {
+      margin: 0 auto;
+      position: relative;
+      max-width: 30rem;
+      height: 25rem;
+      overflow: hidden;
+      box-shadow: $shadowTwo;
+      border-radius: $radius;
+      border: 5px solid $lightClr;
+
+      @include mixins.breakpoint-up(medium) {
+        margin: 0 auto;
+      }
+
+      .testimonial__slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: 0.3s;
+
+        &.active-slide {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        &.prev-slide {
+          transform: translateX(-100%);
+        }
+
+        &.next-slide {
+          transform: translateX(100%);
+        }
+
+        .testimonial__slide-content {
+          height: 100%;
+          padding: 2rem;
+          display: flex;
+          flex-flow: column;
+          justify-content: center;
+          gap: 0.5rem;
+          color: $whiteClr;
+          text-shadow: $shadowText;
+
+          .testimonial__description {
+            font-size: $fontSm;
+            line-height: 1.3;
+          }
+
+          .testimonial__profile {
+            padding-top: 1rem;
+
+            .testimonial__profile-detail {
+              font-size: $fontSm;
+            }
+          }
+        }
+
+        &-img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          border-radius: $radius;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+  .slider__button-next,
+  .slider__button-prev {
+    background: transparent;
+    position: absolute;
+    bottom: 7%;
+    color: $navLinkClr;
+    text-shadow: $shadowText2;
+  }
+
+  .slider__button-prev {
+    left: 20%;
+
+    @include mixins.breakpoint-up(medium) {
+      left: 30%;
+    }
+  }
+
+  .slider__button-next {
+    right: 20%;
+
+    @include mixins.breakpoint-up(medium) {
+      right: 30%;
+    }
+  }
+}

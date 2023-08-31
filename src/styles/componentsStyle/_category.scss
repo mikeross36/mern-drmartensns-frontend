@@ -1,0 +1,61 @@
+@use "../variables" as *;
+@use "../mixins";
+
+.category {
+  background-image: linear-gradient(
+      to left,
+      rgba($whiteClr, 0.7),
+      rgba($whiteClr, 0.7)
+    ),
+    url("/images/main-bcg-img3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &__container {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    justify-content: center;
+    gap: 3rem;
+  }
+  .shop__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 1s ease;
+
+    .page__number {
+      background: $whiteClr;
+      width: 2rem;
+      height: 2rem;
+      border: none;
+      position: relative;
+      margin: 0 5px;
+      cursor: pointer;
+
+      &.active-btn {
+        background: #315e99;
+        color: $whiteClr;
+        pointer-events: none;
+        font-weight: 700;
+      }
+
+      &.disabled-btn {
+        display: none;
+      }
+    }
+
+    .page__nav-btn {
+      background: $lightClr;
+      border: none;
+      padding: 10px;
+      border-radius: 10px;
+      color: #292929;
+      font-weight: 700;
+      box-shadow: $shadowOne;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+  }
+}

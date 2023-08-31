@@ -1,0 +1,14 @@
+.rating__stars {
+  display: flex;
+  margin: 0.5rem;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.rating__star {
+  cursor: pointer;
+  transition: color 0.2s;
+  margin-right: 10px;
+}

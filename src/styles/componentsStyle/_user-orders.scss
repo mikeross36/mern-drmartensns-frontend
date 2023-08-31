@@ -1,0 +1,92 @@
+@use "../variables" as *;
+@use "../mixins";
+
+.orders {
+  padding: 5rem 1rem;
+  height: 100%;
+  background-image: linear-gradient(
+      to left,
+      rgba($whiteClr, 0.7),
+      rgba($whiteClr, 0.7)
+    ),
+    url("/images/main-bcg-img3.jpg");
+  // https://visualhunt.com/search/instant/?q=dr+martens
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include mixins.breakpoint-up(medium) {
+    padding: 7rem 0;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 64rem;
+    height: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 2rem;
+    justify-items: center;
+
+    .order__card {
+      background-color: $whiteClr;
+      height: auto;
+      width: 17rem;
+      margin: 0 auto;
+      padding: 1.5rem;
+      transition: all 0.1s ease;
+      box-shadow: $shadowOne;
+      font-size: $fontSm;
+      color: $darkClr-medium;
+
+      &-content {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+
+        & h4 {
+          text-decoration: underline;
+          text-transform: capitalize;
+          margin-bottom: $mb-1;
+        }
+      }
+
+      .order__item {
+        margin: 1rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        font-size: 0.7rem;
+        outline-offset: 5px;
+        outline: 1px solid $darkClr-light;
+
+        & img {
+          width: 5rem;
+        }
+
+        &-name {
+          font-weight: 500;
+        }
+      }
+
+      .order__info {
+        text-align: left;
+        font-size: 0.7rem;
+        width: 100%;
+        margin: 0 1rem;
+
+        & p {
+          text-decoration: underline;
+          padding-bottom: $mb-1;
+        }
+
+        .order__data {
+          display: flex;
+          flex-direction: column;
+          gap: 3px;
+        }
+      }
+    }
+  }
+}

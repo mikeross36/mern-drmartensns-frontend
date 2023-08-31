@@ -1,0 +1,45 @@
+@use "../variables" as *;
+@use "../mixins";
+
+.reviews {
+  margin-top: 2rem;
+  &__title {
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(170deg, #fcc923 27.16%, #2b02fc 97.86%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &__container {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+
+    .review__card {
+      padding: 0.5rem 1rem;
+      background-color: $lightClr;
+
+      .review__avatar {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: $mb-1;
+
+        .review__avatar-img {
+          width: 30px;
+          border-radius: $radius;
+        }
+      }
+
+      .review__content {
+        font-size: $fontSm;
+        line-height: 1.3;
+      }
+    }
+  }
+}

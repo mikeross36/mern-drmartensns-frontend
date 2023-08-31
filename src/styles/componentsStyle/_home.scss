@@ -1,0 +1,117 @@
+@use "../variables" as *;
+@use "../mixins";
+
+.home {
+  overflow: hidden;
+  letter-spacing: 1px;
+  padding: 3rem 1rem;
+  background-image: linear-gradient(
+      to left,
+      rgba($whiteClr, 0.7),
+      rgba($whiteClr, 0.7)
+    ),
+    url("/images/main-bcg-img.jpg");
+  // https://visualhunt.com/search/instant/?q=dr+martens
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include mixins.breakpoint-up(medium) {
+    padding: 1rem 0;
+    background-position: center;
+  }
+
+  &__container {
+    height: calc(100vh - $headerHight);
+    padding: 2rem 1rem;
+
+    @include mixins.breakpoint-up(medium) {
+      height: 100vh;
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: space-between;
+      align-items: center;
+      column-gap: 1rem;
+      padding: 0 1rem;
+    }
+
+    @include mixins.breakpoint-up(large) {
+      height: 70vh;
+    }
+
+    .home__boot {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @include mixins.breakpoint-up(medium) {
+        order: 1;
+        row-gap: 0;
+      }
+
+      .home__overlay {
+        width: 13rem;
+        height: 13rem;
+        background: linear-gradient(to left, #ffa500, #ff6347);
+        border-radius: 50%;
+        box-shadow: $shadowThree;
+
+        @include mixins.breakpoint-up(medium) {
+          width: 25rem;
+          height: 25rem;
+        }
+      }
+
+      .home__img {
+        position: absolute;
+        width: 13rem;
+        max-width: initial;
+        bottom: calc(4rem + 1%);
+        transform: $rotateImg;
+        filter: drop-shadow(
+          rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+          rgba(0, 0, 0, 0.3) 0px 3px 7px -3px
+        );
+
+        @include mixins.breakpoint-up(medium) {
+          width: 27rem;
+          right: calc(3rem + 1%);
+          bottom: calc(2rem + 1%);
+        }
+      }
+    }
+
+    .home__data {
+      text-transform: capitalize;
+      color: $darkClr-medium;
+
+      & h1 {
+        font-weight: 900;
+        line-height: 110%;
+      }
+
+      & h1:nth-child(3) {
+        background: linear-gradient(170deg, #fac002 27.16%, #2d03fd 97.86%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+
+        @include mixins.breakpoint-up(medium) {
+          line-height: 120%;
+        }
+      }
+
+      .home__new {
+        display: block;
+        font-weight: 700;
+      }
+
+      .home__description {
+        margin: 1rem 0;
+        font-weight: 700;
+        line-height: 150%;
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+@use "../variables" as *;
+@use "../mixins";
+
+// https://visualhunt.com/search/instant/?q=dr+martens
+
+.account {
+  background-image: linear-gradient(
+      to left,
+      rgba($whiteClr, 0.7),
+      rgba($whiteClr, 0.7)
+    ),
+    url("/images/main-bcg-img.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  grid-template-columns: 1fr;
+  padding: 5rem 2rem;
+
+  @include mixins.breakpoint-up(medium) {
+    grid-template-columns: 40% 40% auto;
+    column-gap: 1rem;
+    padding: 7rem 0;
+  }
+
+  .user__account-content {
+    row-gap: 2rem;
+    @include mixins.breakpoint-up(medium) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+.update__form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .update__title {
+    padding: 1rem 0;
+    background: linear-gradient(170deg, #fac002 27.16%, #2d03fd 97.86%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: capitalize;
+  }
+
+  .update__form-user,
+  .update__form-password {
+    height: 20rem;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+      rgba(0, 0, 0, 0.3) 0px 17px 23px -3px,
+      rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: $radius;
+    color: $darkClr-light;
+
+    .input__control {
+      margin: 0.5rem 0;
+
+      & .update__photo {
+        width: 3rem;
+        height: 3rem;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: $mb-1;
+        border: 1px solid $darkClr-medium;
+      }
+    }
+
+    .form__input {
+      width: 15rem;
+      height: 2.5rem;
+      outline: none;
+      padding: 0 0.6rem;
+      margin: 0.5rem 0;
+      border: 0.1px solid $lightClr;
+      transition: all 0.2s ease-in-out;
+      font-size: $fontSm;
+      letter-spacing: 1px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+        rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+      background-color: $bodyBcg;
+      border-radius: $radius;
+
+      &::placeholder {
+        color: rgb(182, 181, 181);
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .submit__btn {
+      margin: 1.5rem 0;
+      letter-spacing: 1.5px;
+    }
+  }
+}

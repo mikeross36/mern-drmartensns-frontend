@@ -1,0 +1,84 @@
+@use "../variables" as *;
+@use "../mixins";
+
+.footer {
+  padding: 3rem 2rem;
+  background-color: $bodyBcg;
+
+  @include mixins.breakpoint-up(medium) {
+    height: 30vh;
+  }
+
+  @include mixins.breakpoint-up(large) {
+    padding: 2rem 0;
+  }
+
+  .footer__container {
+    @include mixins.breakpoint-up(medium) {
+      max-width: 64rem; // 1024px
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1rem;
+      margin: 0 auto;
+    }
+
+    .footer__box {
+      margin-bottom: $mb-3;
+    }
+
+    .social {
+      @include mixins.breakpoint-up(medium) {
+        align-self: center;
+      }
+    }
+
+    .footer__title {
+      font-size: $fontMd;
+      color: $darkClr-medium;
+      margin-bottom: $mb-1;
+      text-transform: uppercase;
+    }
+
+    .footer__link {
+      display: block;
+      width: max-content;
+      color: $darkClr-medium;
+      font-size: $fontSm;
+      font-weight: 700;
+      margin-bottom: $mb-2;
+      text-transform: capitalize;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .footer__social {
+      display: inline-block;
+      padding: 0.4rem;
+      border-radius: 50%;
+      margin-right: $mb-2;
+      box-shadow: $shadowTwo;
+
+      & img {
+        filter: drop-shadow($shadowTwo);
+      }
+
+      @include mixins.breakpoint-up(medium) {
+        margin: $mb-2;
+      }
+    }
+  }
+
+  .footer__copy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+    @include mixins.breakpoint-up(medium) {
+      padding-top: 1rem;
+    }
+  }
+}

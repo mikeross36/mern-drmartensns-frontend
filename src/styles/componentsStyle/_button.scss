@@ -1,0 +1,89 @@
+@use "../variables" as *;
+@use "../mixins";
+
+.button {
+  box-sizing: border-box;
+  width: 13em;
+  height: 3em;
+  font-size: $fontSlg;
+  color: $whiteClr;
+  text-transform: capitalize;
+  border-radius: 0.5em;
+  margin-top: 2rem;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  cursor: pointer;
+  background: linear-gradient(to left, #ffa500, #ff6347);
+  text-align: center;
+  transform: perspective(600px) rotateY(-45deg);
+
+  @include mixins.breakpoint-down(medium) {
+    width: 11em;
+    height: 2.2em;
+  }
+
+  &:hover {
+    transform: perspective(300px) rotateY(-45deg);
+    padding-left: 5%;
+  }
+}
+
+.button-light {
+  width: 7em;
+  height: 2em;
+  font-size: $fontMd;
+  border-radius: 0.5em;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+  color: $whiteClr;
+  text-transform: capitalize;
+  transition: 0.3s;
+  cursor: pointer;
+  background: linear-gradient(to left, #ffa500, #ff6347);
+  padding: 0 0.5rem;
+  transform: perspective(600px) rotateY(-35deg);
+
+  &:hover {
+    transform: perspective(200px) rotateY(-40deg);
+    padding-right: 5%;
+  }
+}
+
+.button-details {
+  width: 7em;
+  height: 2em;
+  font-size: $fontMd;
+  color: $whiteClr;
+  border-radius: 0.5em;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+  text-transform: capitalize;
+  transition: 0.3s;
+  cursor: pointer;
+  background: linear-gradient(to left, #56ccf2, #2f80ed);
+  padding: 0 0.5rem;
+  transform: perspective(600px) rotateY(-35deg);
+
+  &:hover {
+    transform: perspective(200px) rotateY(-40deg);
+    padding-right: 5%;
+  }
+}
+
+.button-red {
+  width: 7em;
+  height: 2em;
+  font-size: $fontMd;
+  color: $whiteClr;
+  border-radius: 0.5em;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+  text-transform: capitalize;
+  transition: 0.3s;
+  cursor: pointer;
+  background: $mainRed;
+  padding: 0 0.5rem;
+  transform: perspective(600px) rotateY(-35deg);
+
+  &:hover {
+    transform: perspective(200px) rotateY(-40deg);
+    padding-right: 5%;
+  }
+}

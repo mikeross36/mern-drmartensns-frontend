@@ -1,0 +1,94 @@
+@use "../variables" as *;
+@use "../mixins";
+
+.review {
+  margin-top: 2rem;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $darkClr-medium;
+  gap: 1rem;
+
+  .review__title {
+    line-height: 2;
+    text-align: center;
+    text-transform: uppercase;
+
+    & button {
+      text-decoration: underline;
+      background: transparent;
+
+      & strong {
+        color: $darkClr-medium;
+      }
+    }
+  }
+
+  .review__form-container {
+    padding: 1rem;
+    width: 70vw;
+    background-color: $lightClr;
+    box-shadow: $shadowOne;
+    border-radius: $radius;
+
+    @include mixins.breakpoint-up(medium) {
+      width: 55vw;
+    }
+
+    @include mixins.breakpoint-up(large) {
+      width: 40vw;
+    }
+
+    .review__form {
+      margin: 0 auto;
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      row-gap: 1rem;
+
+      @include mixins.breakpoint-up(medium) {
+        row-gap: 1rem;
+      }
+
+      .form__control {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 1rem;
+
+        .form__label {
+          display: block;
+          font-size: $fontMd;
+          font-weight: 500;
+          text-transform: capitalize;
+          margin-bottom: $mb-1;
+        }
+
+        .form__input {
+          margin: 0 auto;
+          font-family: inherit;
+          font-size: $fontSm;
+          width: 95%;
+          border: 1px solid $darkClr-light;
+          transition: all 0.3s;
+          border-radius: 4px;
+          background-color: $whiteClr;
+          padding: 0.1rem 0.3rem;
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        .review__rating-title {
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+}
