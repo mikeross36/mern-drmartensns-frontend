@@ -36,6 +36,13 @@ export default function UpdateAccount() {
     e.preventDefault();
     const formData = new FormData();
     formData.append("file", photo);
+    if (
+      name === currentUser.user.name &&
+      email === currentUser.user.email &&
+      (formData === photoPreview || formData === currentUser.user.photo)
+    ) {
+      return;
+    }
     dispatch(updateAccountAction(name, email, formData));
 
     const timer = setTimeout(function () {

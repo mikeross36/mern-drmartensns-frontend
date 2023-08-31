@@ -4,12 +4,14 @@ import { toast } from "react-toastify";
 const userActionId = "userActionId";
 
 export function updateAccountAction(name, email, formData) {
-  return async function (dispatch) {
+  return async function (dispatch, getState) {
     dispatch({ type: "UPDATE_ACCOUNT_REQUEST" });
+    const currentUser = getState().loginUser.currentUser;
     try {
       const config = {
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${currentUser.token}`,
         },
       };
       const { data } = await axios.patch(
@@ -30,7 +32,7 @@ export function updateAccountAction(name, email, formData) {
         type: "UPDATE_ACCOUNT_FAILED",
         payload: err.response?.data.message,
       });
-      toast(err.response?.data.message, { toastId: userActionId });
+      toast.error(err.response?.data.message, { toastId: userActionId });
     }
   };
 }
