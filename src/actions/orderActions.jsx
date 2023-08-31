@@ -41,6 +41,7 @@ export function getUserOrdersAction() {
       const config = {
         headers: {
           "Content-Type": "application/json",
+          Authrorization: `Bearer ${currentUser.token}`,
         },
       };
       const { data } = await axios.post(

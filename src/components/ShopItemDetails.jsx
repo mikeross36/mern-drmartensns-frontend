@@ -19,10 +19,10 @@ export default function ShopItemDetails() {
   const { itemId } = useParams();
   const footwearState = useSelector((state) => state.getAllFootwear);
   const { footwear } = footwearState;
-  const item = footwear?.find(({ _id }) => _id === itemId);
+  const item = footwear?.find(({ id }) => id === itemId);
 
   const {
-    _id,
+    id,
     coverImage,
     name,
     gender,
@@ -91,9 +91,9 @@ export default function ShopItemDetails() {
             </span>
           </article>
         </div>
-        {currentUser && <AddReview id={_id} name={name} />}
+        {currentUser && <AddReview id={id} name={name} />}
       </main>
-      <ShopItemReviews id={_id} />
+      <ShopItemReviews id={id} />
     </section>
   );
 }

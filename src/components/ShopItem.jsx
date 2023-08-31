@@ -12,7 +12,7 @@ const apiUrl = import.meta.env.VITE_API_URL;
 const shopItemId = "shopItemId";
 
 export default function ShopItem({ item }) {
-  const { coverImage, name, price, material, rating, _id } = item;
+  const { coverImage, name, price, material, rating, id } = item;
   const [footwearRating, setFootwearRating] = useState(rating);
   const [imageClicked, setImageClicked] = useState(false);
   const quantity = 1;
@@ -44,7 +44,7 @@ export default function ShopItem({ item }) {
       <p className="shop__item-name">{name}</p>
       <h4 className="shop__item-price">£{price.toFixed(2)}</h4>
       <p className="shop__item-name">{material}</p>
-      <Link to={`/footwear/${_id}`}>
+      <Link to={`/footwear/${id}`}>
         <Button className="button-details" text="details" />
       </Link>
       <RatingStars
