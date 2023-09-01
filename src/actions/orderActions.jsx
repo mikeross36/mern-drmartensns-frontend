@@ -28,7 +28,7 @@ export function createOrderAction(token, cartTotal) {
         type: "CREATE_ORDER_FAILED",
         payload: err.response?.data.message,
       });
-      toast.error(err.response?.data.message);
+      toast.error(err.response?.data.message, { toastId: orderId });
     }
   };
 }
@@ -41,7 +41,7 @@ export function getUserOrdersAction() {
       const config = {
         headers: {
           "Content-Type": "application/json",
-          Authrorization: `Bearer ${currentUser.token}`,
+          Authorization: `Bearer ${currentUser.token}`,
         },
       };
       const { data } = await axios.post(

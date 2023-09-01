@@ -21,7 +21,6 @@ export function signupUserAction(name, email, password) {
       if (data.status === "success") {
         toast.success("You signed up successfully!", { toastId: authId });
       }
-      console.log(data);
     } catch (err) {
       dispatch({
         type: "SIGNUP_USER_FAILED",
@@ -105,7 +104,6 @@ export function resetPasswordAction(password, token) {
       if (data.status === "success") {
         toast.success("Password reset successfully!", { toastId: authId });
       }
-      console.log(data);
     } catch (err) {
       dispatch({
         type: "RESET_PASSWORD_FAILED",
