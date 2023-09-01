@@ -1,4 +1,4 @@
-import axios from "axios";
+import { api } from "../utils/axiosConfig";
 import { toast } from "react-toastify";
 
 const footwearId = "footwearId";
@@ -12,10 +12,7 @@ export function getAllFootwearAction() {
           "Content-Type": "application/json",
         },
       };
-      const { data } = await axios.get(
-        "https://drmartensns-api.onrender.com/api/v1/footwear",
-        config
-      );
+      const { data } = await api.get("/api/v1/footwear", config);
       dispatch({ type: "GET_ALL_FOOTWEAR_SUCCESS", payload: data });
     } catch (err) {
       dispatch({
@@ -36,10 +33,7 @@ export function getFootwearAction(id) {
           "Content-Type": "application/json",
         },
       };
-      const { data } = await axios.get(
-        `https://drmartensns-api.onrender.com/api/v1/footwear/${id}`,
-        config
-      );
+      const { data } = await api.get(`/api/v1/footwear/${id}`, config);
       dispatch({ type: "GET_FOOTWEAR_SUCCESS", payload: data });
     } catch (err) {
       dispatch({
