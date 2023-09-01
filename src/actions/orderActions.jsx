@@ -1,4 +1,4 @@
-import axios from "axios";
+import { api } from "../utils/axiosConfig";
 import { toast } from "react-toastify";
 
 const orderId = "orderId";
@@ -14,8 +14,8 @@ export function createOrderAction(token, cartTotal) {
           "Content-Type": "application/json",
         },
       };
-      const { data } = await axios.post(
-        "https://drmartensns-api.onrender.com/api/v1/orders/create-order",
+      const { data } = await api.post(
+        "/api/v1/orders/create-order",
         { token, cartTotal, currentUser, cartItems },
         config
       );
@@ -44,8 +44,8 @@ export function getUserOrdersAction() {
           Authorization: `Bearer ${currentUser.token}`,
         },
       };
-      const { data } = await axios.post(
-        "https://drmartensns-api.onrender.com/api/v1/orders/get-user-orders",
+      const { data } = await api.post(
+        "/api/v1/orders/get-user-orders",
         { userId: currentUser.user._id },
         config
       );

@@ -5,7 +5,7 @@ import { useModal } from "../../StateManager/ModalContext";
 import { useDispatch, useSelector } from "react-redux";
 import { getTotalsAction } from "../../actions/cartAction";
 import { toast } from "react-toastify";
-import axios from "axios";
+import { api } from "../../utils/axiosConfig";
 import PropTypes from "prop-types";
 import NavMenu from "./NavMenu";
 import SearchForm from "../search/SearchForm";
@@ -58,8 +58,8 @@ export default function Header() {
           "Content-Type": "application/json",
         },
       };
-      const { data } = await axios.get(
-        `https://drmartensns-api.onrender.com/api/v1/footwear/search-footwear?search=${searchTerm}`,
+      const { data } = await api.get(
+        `/api/v1/footwear/search-footwear?search=${searchTerm}`,
         config
       );
       setSearchResults(data);
