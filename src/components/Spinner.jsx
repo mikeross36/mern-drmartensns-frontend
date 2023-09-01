@@ -3,17 +3,14 @@ import FadeLoader from "react-spinners/FadeLoader";
 export default function Spinner() {
   return (
     <div style={loaderStyle}>
-      <FadeLoader
-        color="#ffa500"
-        height={100}
-        width={100}
-        speedMultiplier={0.7}
-      />
+      <FadeLoader color="#ffa500" size={60} speedMultiplier={0.7} />
     </div>
   );
 }
 
 const loaderStyle = {
+  width: "300px",
+  height: "300px",
   margin: "auto",
   display: "flex",
   alignItems: "center",
