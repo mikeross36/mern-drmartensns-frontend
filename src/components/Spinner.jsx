@@ -10,7 +10,7 @@ export default function Spinner() {
 
 const loaderStyle = {
   width: "300px",
-  height: "200px",
+  height: "300px",
   margin: "auto",
   display: "flex",
   alignItems: "center",

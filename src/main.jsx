@@ -9,7 +9,7 @@ import persistStore from "redux-persist/es/persistStore";
 import { disableReactDevTools } from "@fvilers/disable-react-devtools";
 import { ModalProvider } from "./StateManager/ModalContext.jsx";
 
-if (import.meta.env.NODE_ENV === "production") disableReactDevTools();
+if (import.meta.env.VITE_NODE_ENV === "production") disableReactDevTools();
 
 const persistedStore = persistStore(store);
 
