@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginUserAction } from "../actions/authActions";
 import { useModal } from "../StateManager/ModalContext";
+import { toast } from "react-toastify";
 import Button from "../components/Button";
 
 export default function Login() {
@@ -14,6 +15,10 @@ export default function Login() {
 
   function handleLoginUser(e) {
     e.preventDefault();
+    if (!email || !password) {
+      toast.error("All the fields are mandatory!");
+      return;
+    }
     dispatch(loginUserAction(email, password));
     setEmail("");
     setPassword("");

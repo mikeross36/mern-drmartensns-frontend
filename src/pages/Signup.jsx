@@ -17,7 +17,10 @@ export default function Signup() {
 
   function handleSignupUser(e) {
     e.preventDefault();
-    if (password !== passwordConfirm) {
+    if (!name || !email || !password || !passwordConfirm) {
+      toast.error("All the fields are mandatory!");
+      return;
+    } else if (password !== passwordConfirm) {
       toast.error("Passwords do not match!", { toastId: signupId });
       return;
     }
