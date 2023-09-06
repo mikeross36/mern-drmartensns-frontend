@@ -4,7 +4,53 @@ export default function Home() {
   return (
     <section className="home">
       <div className="home__container grid">
-        <div className="home__boot">
+        <div className="cube__container">
+          <div className="cube">
+            <div className="face front">
+              <img
+                src="/images/home-pic2.jpg"
+                alt="home background pic"
+                className="home__img"
+              />
+            </div>
+            <div className="face back">
+              <img
+                src="/images/home-pic2.jpg"
+                alt="home background pic"
+                className="home__img"
+              />
+            </div>
+            <div className="face right">
+              <img
+                src="/images/home-pic.jpg"
+                alt="home background pic"
+                className="home__img"
+              />
+            </div>
+            <div className="face left">
+              <img
+                src="/images/home-pic2.jpg"
+                alt="home background pic"
+                className="home__img"
+              />
+            </div>
+            <div className="face top">
+              <img
+                src="/images/home-pic.jpg"
+                alt="home background pic"
+                className="home__img"
+              />
+            </div>
+            <div className="face bottom">
+              <img
+                src="/images/home-pic2.jpg"
+                alt="home background pic"
+                className="home__img"
+              />
+            </div>
+          </div>
+        </div>
+        {/* <div className="home__boot">
           <div className="home__overlay">
             <img
               src="/images/home-pic.png"
@@ -12,7 +58,7 @@ export default function Home() {
               className="home__img"
             />
           </div>
-        </div>
+        </div> */}
         <div className="home__data">
           <span className="home__new">new in</span>
           <h1>crazy</h1>

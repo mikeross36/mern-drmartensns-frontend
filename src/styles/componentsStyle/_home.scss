@@ -38,48 +38,120 @@
       height: 70vh;
     }
 
-    .home__boot {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .cube__container {
+      width: 200px;
+      height: 200px;
+      perspective: 800px;
+      margin: 50px auto;
 
       @include mixins.breakpoint-up(medium) {
         order: 1;
-        row-gap: 0;
       }
 
-      .home__overlay {
-        width: 13rem;
-        height: 13rem;
-        background: linear-gradient(to left, #ffa500, #ff6347);
-        border-radius: 50%;
-        box-shadow: $shadowThree;
+      .cube-container:hover .cube {
+        animation-play-state: paused;
+      }
 
-        @include mixins.breakpoint-up(medium) {
-          width: 25rem;
-          height: 25rem;
+      .cube {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        animation: rotate 8s infinite linear;
+
+        .face {
+          position: absolute;
+          width: 200px;
+          height: 200px;
+          background: transparent;
+          opacity: 0.9;
+          border: 2px solid $lightClr;
+
+          .home__img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+          }
         }
-      }
 
-      .home__img {
-        position: absolute;
-        width: 13rem;
-        max-width: initial;
-        bottom: calc(4rem + 1%);
-        transform: $rotateImg;
-        filter: drop-shadow(
-          rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-          rgba(0, 0, 0, 0.3) 0px 3px 7px -3px
-        );
+        .front {
+          transform: translateZ(100px);
+        }
 
-        @include mixins.breakpoint-up(medium) {
-          width: 27rem;
-          right: calc(3rem + 1%);
-          bottom: calc(2rem + 1%);
+        .back {
+          transform: rotateY(180deg) translateZ(100px);
+        }
+
+        .right {
+          transform: rotateY(90deg) translateZ(100px);
+        }
+
+        .left {
+          transform: rotateY(-90deg) translateZ(100px);
+        }
+
+        .top {
+          transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .bottom {
+          transform: rotateX(-90deg) translateZ(100px);
+        }
+
+        @keyframes rotate {
+          0% {
+            transform: rotateX(0) rotateY(0) rotateZ(0);
+          }
+
+          100% {
+            transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+          }
         }
       }
     }
+
+    // .home__boot {
+    //   position: relative;
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+
+    //   @include mixins.breakpoint-up(medium) {
+    //     order: 1;
+    //     row-gap: 0;
+    //   }
+
+    //   .home__overlay {
+    //     width: 13rem;
+    //     height: 13rem;
+    //     background: linear-gradient(to left, #ffa500, #ff6347);
+    //     border-radius: 50%;
+    //     box-shadow: $shadowThree;
+
+    //     @include mixins.breakpoint-up(medium) {
+    //       width: 25rem;
+    //       height: 25rem;
+    //     }
+    //   }
+
+    //   .home__img {
+    //     position: absolute;
+    //     width: 13rem;
+    //     max-width: initial;
+    //     bottom: calc(4rem + 1%);
+    //     transform: $rotateImg;
+    //     filter: drop-shadow(
+    //       rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    //       rgba(0, 0, 0, 0.3) 0px 3px 7px -3px
+    //     );
+
+    //     @include mixins.breakpoint-up(medium) {
+    //       width: 27rem;
+    //       right: calc(3rem + 1%);
+    //       bottom: calc(2rem + 1%);
+    //     }
+    //   }
+    // }
 
     .home__data {
       text-transform: capitalize;
