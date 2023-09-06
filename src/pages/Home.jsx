@@ -8,42 +8,42 @@ export default function Home() {
           <div className="cube">
             <div className="face front">
               <img
-                src="/images/home-pic2.jpg"
+                src="/images/home-pic.png"
                 alt="home background pic"
                 className="home__img"
               />
             </div>
             <div className="face back">
               <img
-                src="/images/home-pic2.jpg"
+                src="/images/home-pic.png"
                 alt="home background pic"
                 className="home__img"
               />
             </div>
             <div className="face right">
               <img
-                src="/images/home-pic.jpg"
+                src="/images/home-pic.png"
                 alt="home background pic"
                 className="home__img"
               />
             </div>
             <div className="face left">
               <img
-                src="/images/home-pic2.jpg"
+                src="/images/home-pic.png"
                 alt="home background pic"
                 className="home__img"
               />
             </div>
             <div className="face top">
               <img
-                src="/images/home-pic.jpg"
+                src="/images/home-pic.png"
                 alt="home background pic"
                 className="home__img"
               />
             </div>
             <div className="face bottom">
               <img
-                src="/images/home-pic2.jpg"
+                src="/images/home-pic.png"
                 alt="home background pic"
                 className="home__img"
               />
