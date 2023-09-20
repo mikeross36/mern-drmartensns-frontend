@@ -19,7 +19,7 @@ export function getAllReviewsAction() {
         type: "GET_ALL_REVIEWS_FAILED",
         payload: err.response?.data.message,
       });
-      toast.error(err.reponse?.data.message);
+      toast.error(err.reponse?.data.message, { toastId: reviewId });
     }
   };
 }
@@ -46,12 +46,16 @@ export function getReviewAction(id) {
 }
 
 export function addReviewAction(id, content) {
-  return async function (dispatch) {
+  return async function (dispatch, getState) {
     dispatch({ type: "ADD_REVIEW_REQUEST" });
     try {
+      const {
+        loginUser: { currentUser },
+      } = getState();
       const config = {
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${currentUser.token}`,
         },
       };
       const { data } = await api.post(

@@ -106,7 +106,7 @@ export function resetPasswordAction(password, token) {
         type: "RESET_PASSWORD_FAILED",
         payload: err.response?.data.message,
       });
-      toast.error(err.response?.data.message);
+      toast.error(err.response?.data.message,{ toastId: authId });
     }
   };
 }
