@@ -38,9 +38,9 @@
     }
 
     .cube__container {
-      width: 200px;
-      height: 200px;
-      perspective: 800px;
+      width: 180px;
+      height: 180px;
+      perspective: 1000px;
       margin: 3.5rem auto;
 
       @include mixins.breakpoint-up(medium) {
